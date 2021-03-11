@@ -1,0 +1,17 @@
+16 /28 
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 / 16 17
+
+access-list 1 deny 172.31.180.0 0.0.0.255 
+access-list 2 permit 10.253.190.0 0.0.0.255 ssh
+
+deny 172.31.180.0 0.0.0.255 deny 
+
+access-list 100 permit tcp 172.31.180.0 0.0.0.255 any eq 21 management interface
+access-list 100 permit tcp 172.31.180.0 0.0.0.255 any eq 22 management interface
+access-list 100 deny tcp any any eq 21 all interface
+access-list 100 deny tcp any any eq 22 all interface
+
+access-list 1 deny 172.31.180.16 0.0.0. all interface 
+
+access-list 100 permit tcp 172.31.180.0 0.0.0.255 any eq 21
